@@ -27,9 +27,15 @@ function CardMain(props) {
   const [imageSurfacePath, setImageSurfacePath] = useState(props.images.geology)
   const [wikipediaUrl, setWikipediaUrl] = useState(props.overview.source)
   const [showSurfaceImage, setShowSurfaceImage] = useState(false)
+  const [planetSize, setPlanetSize] = useState(50)
 
   useEffect(() => {
     showOverview();
+
+    if (name === "Mercury") {
+      setPlanetSize(30);
+    }
+  
   }, [props.name])
 
   function showOverview() {
@@ -61,7 +67,7 @@ function CardMain(props) {
   function hideImage() {
     setShowSurfaceImage(false);
   }
-  
+
   return (
     <div>
       <nav className="planet-card__nav">
@@ -73,7 +79,7 @@ function CardMain(props) {
       </nav>
 
       <main className="planet-card__main">
-        <img src={imageUrl} alt="planet" />
+        <div className="planet-image-container" style={{ backgroundImage: `url(${imageUrl})`, width: `${planetSize}%` }}></div>
         { showSurfaceImage ? <img src={imageSurfacePath} alt="surface planet" /> : null }
         <h2>{name}</h2>
         <p>{text}</p>

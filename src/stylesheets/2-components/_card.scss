@@ -1,8 +1,12 @@
 
-.card_planet {
+.planet-card {
 
   &__nav {
 
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+    }
   }
 
   &__main {
@@ -12,4 +16,12 @@
   &__info {
     
   }
+}
+
+.planet-image-container {
+  margin: 0 auto;
+  height: 250px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
