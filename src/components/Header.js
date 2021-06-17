@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
 
@@ -16,24 +17,17 @@ function Header() {
 
 function Nav() {
 
-  // const [isActive, setIsActive] = useState("false")
-
-  // function toggleMenu() {
-  //   setIsActive(!isActive);
-  // }
-
-
   return (
     <nav id="main-nav">
       <ul>
-        <li><a href="">Mercury</a></li>
-        <li><a href="">Venus</a></li>
-        <li><a href="">Earth</a></li>
-        <li><a href="">Mars</a></li>
-        <li><a href="">Jupiter</a></li>
-        <li><a href="">Saturn</a></li>
-        <li><a href="">Uranus</a></li>
-        <li><a href="">Neptune</a></li>
+        <li><Link to="/mercury">Mercury</Link></li>
+        <li><Link to="/venus">Venus</Link></li>
+        <li><Link to="/earth">Earth</Link></li>
+        <li><Link to="/mars">Mars</Link></li>
+        <li><Link to="/jupiter">Jupiter</Link></li>
+        <li><Link to="/saturn">Saturn</Link></li>
+        <li><Link to="/uranus">Uranus</Link></li>
+        <li><Link to="/neptune">Neptune</Link></li>
       </ul>
     </nav>
   )

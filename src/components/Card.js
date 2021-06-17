@@ -1,59 +1,105 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 
-function PlanetCard() {
+function PlanetCard(props) {
 
   return (
     <div className="planet-card">
-      <CardNav />
-      <CardMain />
-      <CardInfoList />
+      <CardMain 
+        planet={props.planetObj}
+        name={props.planetObj.name}
+        overview={props.planetObj.overview} 
+        structure={props.planetObj.structure} 
+        geology={props.planetObj.geology} 
+        images={props.planetObj.images} 
+      />
+      <CardInfoList planet={props.planetObj}/>
     </div>
-  )
 
+  );
 }
 
-function CardNav() {
+function CardMain(props) {
+
+  const [name, setName] = useState(props.name)
+  const [text, setText] = useState(props.overview.content)
+  const [imageUrl, setImageUrl] = useState(props.images.planet)
+  const [imageSurfacePath, setImageSurfacePath] = useState(props.images.geology)
+  const [wikipediaUrl, setWikipediaUrl] = useState(props.overview.source)
+  const [showSurfaceImage, setShowSurfaceImage] = useState(false)
+
+  useEffect(() => {
+    showOverview();
+  }, [props.name])
+
+  function showOverview() {
+    setName(props.name);
+    setText(props.overview.content);
+    setImageUrl(props.images.planet);
+    setWikipediaUrl(props.overview.source);
+    hideImage();
+  }
+
+  function showStructure() {
+    setText(props.planet.structure.content);
+    setImageUrl(props.images.internal);
+    setWikipediaUrl(props.planet.structure.source);
+    hideImage()
+  }
+
+  function showSurface() {
+    setText(props.planet.geology.content);
+    setWikipediaUrl(props.planet.geology.source);
+    setImageSurfacePath(props.images.geology)
+    showImage();
+  }
+
+  function showImage() {
+    setShowSurfaceImage(true);
+  }
+
+  function hideImage() {
+    setShowSurfaceImage(false);
+  }
+  
   return (
-    <nav className="planet-card__nav">
-      <ul>
-        <li><a>Overview</a></li>
-        <li><a>Structure</a></li>
-        <li><a>Surface</a></li>
-      </ul>
-    </nav>
-  )
+    <div>
+      <nav className="planet-card__nav">
+        <ul>
+          <li><a onClick={showOverview}>Overview</a></li>
+          <li><a onClick={showStructure}>Structure</a></li>
+          <li><a onClick={showSurface}>Surface</a></li>
+        </ul>
+      </nav>
+
+      <main className="planet-card__main">
+        <img src={imageUrl} alt="planet" />
+        { showSurfaceImage ? <img src={imageSurfacePath} alt="surface planet" /> : null }
+        <h2>{name}</h2>
+        <p>{text}</p>
+        <p>Source: <a href={wikipediaUrl}>Wikipedia</a></p>
+      </main>
+    </div>
+    )
 }
 
-
-function CardMain(params) {
-  return (
-    <main className="planet-card__main">
-      <img src="" alt="planet" />
-      <h2>Planet Name</h2>
-      <p>About the planet</p>
-      <p>Source: <a href="#">Wikipedia</a></p>
-    </main>
-  )
-}
-
-function CardInfoList(params) {
+function CardInfoList(props) {
   
   return (
     <ul className="planet-card__info">
-      <InfoListItem />
-      <InfoListItem />
-      <InfoListItem />
-      <InfoListItem />
+      <InfoListItem name="rotation time" value={props.planet.rotation} />
+      <InfoListItem name="revolution time" value={props.planet.revolution} />
+      <InfoListItem name="radius" value={props.planet.radius} />
+      <InfoListItem name="average temp." value={props.planet.temperature} />
     </ul>
   )
 }
 
-function InfoListItem(params) {
+function InfoListItem(props) {
   return (
     <li>
-      <span>Rotation Time</span>
-      <sapn>50 days</sapn>
+      <span>{props.name}</span>
+      <sapn>{props.value}</sapn>
     </li>
   )
 }
