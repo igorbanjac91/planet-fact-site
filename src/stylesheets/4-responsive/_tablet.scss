@@ -106,9 +106,11 @@
       a {
         width: 100%;
         margin-bottom: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
         text-align: left;
         color: #fff;
-        border: 1px solid $trasparent-white-25
+        border: 1px solid $trasparent-white-20 
       }
 
       span {
@@ -163,12 +165,16 @@
         display: inline-block;
         width: 100%;
         text-align: left;
-        white-space: nowrap;
+        white-space: nowrap ;
 
       }
     }
 
   }
 
-
+  .surface-image {
+    width: 150px;
+    
+  }
 }
+

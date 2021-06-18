@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router, 
   Switch, 
   Route, 
-  Link,
+  Redirect,
   useParams
 } from "react-router-dom"
 import Header from "./components/Header";
@@ -16,6 +16,9 @@ function App() {
       <div>
         <Header />
         <Switch>
+          <Route exact path="/" >
+            <Redirect to="/mercury" />
+          </Route>
           <Route path="/:planetName" children={<Planet />} />
         </Switch>
       </div>
@@ -30,6 +33,11 @@ function Planet() {
   const [planet, setPlanet] = useState(null)
 
   useEffect(async () => {
+
+    // window.addEventListener("onlaad", () => {
+    //   setPlanet()
+    // })
+
     let planetObj = await getData(planetName)
     setPlanet(planetObj)
   }, [planetName]) 
@@ -49,10 +57,6 @@ function Planet() {
     let first = word.charAt(0);
     return first.toUpperCase() + word.slice(1);
   }
-
-
-  
-
 
   if (planet === null) {
     return <p>Loading profile...</p>;

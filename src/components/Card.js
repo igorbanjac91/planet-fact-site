@@ -88,6 +88,7 @@ function CardMain(props) {
   function showSurface() {
     setText(props.planet.geology.content);
     setWikipediaUrl(props.planet.geology.source);
+    setImageUrl(props.images.planet);
     setImageSurfacePath(props.images.geology)
     showImage();
     setToggleSurface(true)
@@ -144,8 +145,9 @@ function CardMain(props) {
             </li>
         </ul>
       </nav>
-      <div className="planet-image-container" style={{ backgroundImage: `url(${imageUrl})`, width: `${size}%` }}></div>
-      { showSurfaceImage ? <img className="surface-image" src={imageSurfacePath} alt="surface planet" /> : null }
+      <div className="planet-image-container" style={{ backgroundImage: `url(${imageUrl})`, width: `${size}%` }}>
+        { showSurfaceImage ? <img className="surface-image" src={imageSurfacePath} alt="surface planet" /> : null }
+      </div>
       <main className="planet-card__main">
         <h2>{name}</h2>
         <p>{text}</p>
