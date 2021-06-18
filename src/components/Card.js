@@ -122,32 +122,33 @@ function CardMain(props) {
     surface.childNodes[1].nodeValue = "geology";
   }
 
+  console.log(imageUrl)
   return (
     <div className="planet-card__container">
       <nav className="planet-card__nav">
         <ul>
           <li>
-            <a onClick={showOverview} id="overviewItem" style={ toggleOverview ? navItemStyle : null }>
+            <button onClick={showOverview} id="overviewItem" style={ toggleOverview ? navItemStyle : null }>
               <span className="hide">01</span>
               Overview
-            </a>
+            </button>
           </li>
           <li>
-            <a onClick={showStructure} id="structureItem" style={ toggleStructure ? navItemStyle : null }>
+            <button onClick={showStructure} id="structureItem" style={ toggleStructure ? navItemStyle : null }>
               <span className="hide">02</span>
               Structure
-            </a>
+            </button>
           </li>
           <li>
-            <a onClick={showSurface} id="surfaceItem" style={ toggleSurface ? navItemStyle : null }>
+            <button onClick={showSurface} id="surfaceItem" style={ toggleSurface ? navItemStyle : null }>
               <span className="hide">03</span>
               Surface
-            </a>
-            </li>
+            </button>
+          </li>
         </ul>
       </nav>
-      <div className="planet-image-container" style={{ backgroundImage: `url(${imageUrl})`, width: `${size}%` }}>
-        { showSurfaceImage ? <img className="surface-image" src={imageSurfacePath} alt="surface planet" /> : null }
+      <div className="planet-image-container" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}${imageUrl.substring(1)})`, width: `${size}%` }}>
+        { showSurfaceImage ? <img className="surface-image" src={`${process.env.PUBLIC_URL}${imageSurfacePath.substring(1)}`} alt="surface planet" /> : null }
       </div>
       <main className="planet-card__main">
         <h2>{name}</h2>

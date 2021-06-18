@@ -34,30 +34,30 @@ function Planet() {
 
   useEffect(() => {
 
-    async function fethcData() {
-      let respone = await getData(planetName)
-      setPlanet(respone)
+    async function fethcData(name = "Mercury") {
+      let response = await fetch('data.json', {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+      })    
+      let data =  await response.json()
+      console.log(data)
+      data.find( (planetObj) => {
+        if (planetObj.name === capitalize(name) ) {
+          setPlanet(planetObj)
+        }
+      })
     }
-
     fethcData(planetName);
   }, [planetName]) 
   
-  const getData = async (name = "Mercury") => {
-    const response = await fetch('data.json')    
-    const json = await response.json()
-    const result = await json.find( function planetByName(planetObj) {
-      if (planetObj.name === capitalize(name) ) {
-        return planetObj
-      }
-    })
-    return result
-  }
 
   function capitalize(word) {
     let first = word.charAt(0);
     return first.toUpperCase() + word.slice(1);
   }
-
+  
   if (planet === null) {
     return <p>Loading profile...</p>;
   }

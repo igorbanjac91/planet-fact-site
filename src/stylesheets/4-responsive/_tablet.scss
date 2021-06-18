@@ -99,7 +99,7 @@
         border-bottom: none;
       }
 
-      a {
+      button {
         width: 100%;
         margin-bottom: 16px;
         padding-top: 16px;
@@ -110,7 +110,7 @@
         cursor: pointer; 
       }
 
-      a:hover {
+      button:hover {
         background-color: $hover-gray;
       }
 
