@@ -36,7 +36,7 @@ function Planet() {
   useEffect(() => {
 
     async function fethcData(name = "Mercury") {
-      let response = await fetch('data.json', {
+      let response = await fetch('/data.json', {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
