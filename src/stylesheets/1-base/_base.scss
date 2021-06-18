@@ -1,5 +1,5 @@
 body {
-  background-image: url("http://localhost:3000/assets/background-stars.svg");                                 
+  background: url("/assets/background-stars.svg");                                 
   background-color: $main-dark;
   color: $main-light;
 }
@@ -79,7 +79,7 @@ path {
     right: 0px;
     top: 50%;
     transform: translateY(-50%);
-    background-image: url("http://localhost:3000/assets/icon-chevron.svg");
+    background-image: url("/assets/icon-chevron.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
