@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/planet-fact-site/static/css/main.c838eaef.chunk.css",
+    "main.js": "/planet-fact-site/static/js/main.ee4fa3fa.chunk.js",
+    "main.js.map": "/planet-fact-site/static/js/main.ee4fa3fa.chunk.js.map",
+    "runtime-main.js": "/planet-fact-site/static/js/runtime-main.806bd79a.js",
+    "runtime-main.js.map": "/planet-fact-site/static/js/runtime-main.806bd79a.js.map",
+    "static/js/2.b0539cf1.chunk.js": "/planet-fact-site/static/js/2.b0539cf1.chunk.js",
+    "static/js/2.b0539cf1.chunk.js.map": "/planet-fact-site/static/js/2.b0539cf1.chunk.js.map",
+    "index.html": "/planet-fact-site/index.html",
+    "static/css/main.c838eaef.chunk.css.map": "/planet-fact-site/static/css/main.c838eaef.chunk.css.map",
+    "static/js/2.b0539cf1.chunk.js.LICENSE.txt": "/planet-fact-site/static/js/2.b0539cf1.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/planet-fact-site/static/media/Spartan-Regular.01633446.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.806bd79a.js",
+    "static/js/2.b0539cf1.chunk.js",
+    "static/css/main.c838eaef.chunk.css",
+    "static/js/main.ee4fa3fa.chunk.js"
+  ]
+}
