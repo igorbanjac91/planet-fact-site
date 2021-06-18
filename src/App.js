@@ -51,6 +51,9 @@ function Planet() {
   }
 
 
+  
+
+
   if (planet === null) {
     return <p>Loading profile...</p>;
   }

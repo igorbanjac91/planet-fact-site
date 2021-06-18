@@ -3,31 +3,54 @@ import { Link } from "react-router-dom";
 
 function Header() {
 
+  const [isActive, setIsActive] = useState(false)
+  
+  function toggleMenu() {
+    const menu = document.getElementById("main-nav");
+    if (isActive) {
+      menu.classList.remove("show-menu")
+      setIsActive(false);
+    } else {
+      menu.classList.add("show-menu")
+      setIsActive(true);
+    }
+  }
+  
+  function closeMenu() {
+    const menu = document.getElementById("main-nav");
+    menu.classList.remove("show-menu")
+    setIsActive(false);
+  }
+
   return (
     <header className="main-header">
       <div className="main-header__header">
         <h1>THE PLANETS</h1>
-        <BurgerIcon />
+        <BurgerIcon toggleMenu={toggleMenu}/>
       </div>
-      <Nav />
+      <Nav closeMenu={closeMenu}/>
     </header>
   )
 }
 
 
-function Nav() {
+function Nav(props) {
+
+  function closeMenu() {
+    props.closeMenu();
+  }
 
   return (
     <nav id="main-nav">
       <ul>
-        <li><Link to="/mercury">Mercury</Link></li>
-        <li><Link to="/venus">Venus</Link></li>
-        <li><Link to="/earth">Earth</Link></li>
-        <li><Link to="/mars">Mars</Link></li>
-        <li><Link to="/jupiter">Jupiter</Link></li>
-        <li><Link to="/saturn">Saturn</Link></li>
-        <li><Link to="/uranus">Uranus</Link></li>
-        <li><Link to="/neptune">Neptune</Link></li>
+        <li><Link to="/mercury" onClick={closeMenu}>Mercury</Link></li>
+        <li><Link to="/venus" onClick={closeMenu}>Venus</Link></li>
+        <li><Link to="/earth" onClick={closeMenu}>Earth</Link></li>
+        <li><Link to="/mars" onClick={closeMenu}>Mars</Link></li>
+        <li><Link to="/jupiter" onClick={closeMenu}>Jupiter</Link></li>
+        <li><Link to="/saturn" onClick={closeMenu}>Saturn</Link></li>
+        <li><Link to="/uranus" onClick={closeMenu}>Uranus</Link></li>
+        <li><Link to="/neptune" onClick={closeMenu}>Neptune</Link></li>
       </ul>
     </nav>
   )
@@ -36,17 +59,8 @@ function Nav() {
 
 function BurgerIcon(props) {
 
-  const [isActive, setIsActive] = useState(false)
-  
   function toggleMenu() {
-    const menu = document.getElementById("main-nav");
-    if (isActive) {
-      menu.classList.remove("show-menu")
-      setIsActive(!isActive);
-    } else {
-      menu.classList.add("show-menu")
-      setIsActive(!isActive);
-    }
+    props.toggleMenu()
   }
 
   return (

@@ -1,0 +1,22 @@
+.planet-card {
+
+  &__container {
+    display: grid;
+  }
+
+  &__nav {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  .planet-image-container {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  &__main {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+}

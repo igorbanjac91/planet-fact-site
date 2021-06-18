@@ -2,11 +2,12 @@
 @import "1-base/variables";
 @import "1-base/typography";
 @import "1-base/base";
+@import "1-base/helpers";
 
 @import "2-components/buttons";
-@import "2-components/card";
+@import "2-components/card";  
 
-@import "3-layout/home";
+@import "3-layout/base";
 
 @import "4-responsive/tablet";
 @import "4-responsive/desktop";

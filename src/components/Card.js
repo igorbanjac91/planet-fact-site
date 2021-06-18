@@ -5,7 +5,7 @@ function PlanetCard(props) {
 
   return (
     <div className="planet-card">
-      <CardMain 
+      <CardMain     
         planet={props.planetObj}
         name={props.planetObj.name}
         overview={props.planetObj.overview} 
@@ -17,7 +17,7 @@ function PlanetCard(props) {
     </div>
 
   );
-}
+}  
 
 function CardMain(props) {
 
@@ -27,30 +27,62 @@ function CardMain(props) {
   const [imageSurfacePath, setImageSurfacePath] = useState(props.images.geology)
   const [wikipediaUrl, setWikipediaUrl] = useState(props.overview.source)
   const [showSurfaceImage, setShowSurfaceImage] = useState(false)
-  const [planetSize, setPlanetSize] = useState(50)
+  const [color, setColor] = useState(props.planet.color)
+  const [size, setSize] = useState(props.planet.size)
+  const [toggleOverview, setToggleOverview] = useState(false)
+  const [toggleStructure, setToggleStructure] = useState(false)
+  const [toggleSurface, setToggleSurface] = useState(false)
+  const [navItemStyle, setNavItemStyle] = useState( { borderBottom: `3px solid ${color}`, color: "#fff" })
+  const [windowSize, setWindowSize] = useState(window.innerWidth)
+
+  // let navItemStyle = {
+  //   borderBottom: `3px solid ${color}`,
+  //   color: "#fff"
+  // }
 
   useEffect(() => {
     showOverview();
 
-    if (name === "Mercury") {
-      setPlanetSize(30);
+    window.addEventListener("resize", () => {
+      setWindowSize(window.innerWidth)
+    })
+
+    if (windowSize < 600) {
+      setBorderColor(color)
+    } else {
+      setBackgroundColor(color)
+      changeNavValues()
     }
   
-  }, [props.name])
+    return () => {
+      window.addEventListener("resize", () => {
+        setWindowSize(window.innerWidth)
+      })
+    }
+
+  }, [props.name, windowSize])
 
   function showOverview() {
     setName(props.name);
     setText(props.overview.content);
     setImageUrl(props.images.planet);
     setWikipediaUrl(props.overview.source);
+    setSize(props.planet.size)
+    setColor(props.planet.color)
     hideImage();
+    setToggleOverview(true)
+    setToggleStructure(false)
+    setToggleSurface(false)
   }
-
+  
   function showStructure() {
     setText(props.planet.structure.content);
     setImageUrl(props.images.internal);
     setWikipediaUrl(props.planet.structure.source);
     hideImage()
+    setToggleStructure(true)
+    setToggleOverview(false)
+    setToggleSurface(false)
   }
 
   function showSurface() {
@@ -58,6 +90,9 @@ function CardMain(props) {
     setWikipediaUrl(props.planet.geology.source);
     setImageSurfacePath(props.images.geology)
     showImage();
+    setToggleSurface(true)
+    setToggleStructure(false)
+    setToggleOverview(false)
   }
 
   function showImage() {
@@ -67,23 +102,54 @@ function CardMain(props) {
   function hideImage() {
     setShowSurfaceImage(false);
   }
+    
+  function setBackgroundColor(color) {
+    setNavItemStyle( { backgroundColor: `${color}` } )
+  }
+
+  function setBorderColor(color) {
+    setNavItemStyle( { borderBottom: `3px solid ${color}`, color: "#fff" } )
+  }
+
+  function changeNavValues() {
+    let overview = document.querySelector("#overviewItem");
+    let structure = document.querySelector("#structureItem");    
+    let surface = document.querySelector("#surfaceItem");
+    structure.childNodes[1].nodeValue = "iternal structure";
+    surface.childNodes[1].nodeValue = "surface geology";
+  }
+
 
   return (
-    <div>
+    <div className="planet-card__container">
       <nav className="planet-card__nav">
         <ul>
-          <li><a onClick={showOverview}>Overview</a></li>
-          <li><a onClick={showStructure}>Structure</a></li>
-          <li><a onClick={showSurface}>Surface</a></li>
+          <li>
+            <a onClick={showOverview} id="overviewItem" style={ toggleOverview ? navItemStyle : null }>
+              <span className="hide">01</span>
+              Overview
+            </a>
+          </li>
+          <li>
+            <a onClick={showStructure} id="structureItem" style={ toggleStructure ? navItemStyle : null }>
+              <span className="hide">02</span>
+              Structure
+            </a>
+          </li>
+          <li>
+            <a onClick={showSurface} id="surfaceItem" style={ toggleSurface ? navItemStyle : null }>
+              <span className="hide">03</span>
+              Surface
+            </a>
+            </li>
         </ul>
       </nav>
-
+      <div className="planet-image-container" style={{ backgroundImage: `url(${imageUrl})`, width: `${size}%` }}></div>
+      { showSurfaceImage ? <img className="surface-image" src={imageSurfacePath} alt="surface planet" /> : null }
       <main className="planet-card__main">
-        <div className="planet-image-container" style={{ backgroundImage: `url(${imageUrl})`, width: `${planetSize}%` }}></div>
-        { showSurfaceImage ? <img src={imageSurfacePath} alt="surface planet" /> : null }
         <h2>{name}</h2>
         <p>{text}</p>
-        <p>Source: <a href={wikipediaUrl}>Wikipedia</a></p>
+        <span>Source: <a href={wikipediaUrl}>Wikipedia</a></span>
       </main>
     </div>
     )
@@ -105,7 +171,7 @@ function InfoListItem(props) {
   return (
     <li>
       <span>{props.name}</span>
-      <sapn>{props.value}</sapn>
+      <sapn className="info-value" >{props.value}</sapn>
     </li>
   )
 }

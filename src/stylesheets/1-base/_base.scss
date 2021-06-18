@@ -25,9 +25,13 @@ path {
   }
 
   nav {
+    position: absolute;
+    width: 100%;
     height: 0;
+    z-index: 99;
+    background-color: $bakcground-blue;
     overflow: hidden;
-    transition: height 300ms linear 0s;
+    transition: height 300ms ease-in-out 0s;
   }
 
   .show-menu {
@@ -72,7 +76,6 @@ path {
     position: absolute;
     height: 8px;
     width: 8px;
-    // background-color: #fff;
     right: 0px;
     top: 50%;
     transform: translateY(-50%);

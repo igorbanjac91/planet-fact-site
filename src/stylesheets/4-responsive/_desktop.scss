@@ -12,11 +12,16 @@
 
     h1 {
       margin: 0;
+      white-space: nowrap;
     }
 
     ul {
       justify-content: flex-end;
       padding: 0;
+    }
+
+    li {
+      width: min-content;
     }
 
     a {
