@@ -35,17 +35,16 @@ function Planet() {
   useEffect(() => {
 
     async function fethcData(name = "Mercury") {
-      let response = await fetch('data.json', {
+      let response = await fetch('./data.json', {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
          }
       })    
       let data =  await response.json()
-      console.log(data)
       data.find( (planetObj) => {
         if (planetObj.name === capitalize(name) ) {
-          setPlanet(planetObj)
+           setPlanet(planetObj)
         }
       })
     }
