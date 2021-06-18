@@ -56,7 +56,7 @@ function CardMain(props) {
       })
     }
 
-  }, [props.name, windowSize])
+  }, [props.name, windowSize, color])
 
   function showOverview() {
     setName(props.name);
@@ -109,7 +109,6 @@ function CardMain(props) {
   }
 
   function changeNavValues() {
-    let overview = document.querySelector("#overviewItem");
     let structure = document.querySelector("#structureItem");    
     let surface = document.querySelector("#surfaceItem");
     structure.childNodes[1].nodeValue = "iternal structure";
@@ -117,7 +116,6 @@ function CardMain(props) {
   }
 
   function resetNavValues() {
-    let overview = document.querySelector("#overviewItem");
     let structure = document.querySelector("#structureItem");    
     let surface = document.querySelector("#surfaceItem");
     structure.childNodes[1].nodeValue = "structure";
@@ -176,7 +174,7 @@ function InfoListItem(props) {
   return (
     <li>
       <span>{props.name}</span>
-      <sapn className="info-value" >{props.value}</sapn>
+      <span className="info-value" >{props.value}</span>
     </li>
   )
 }

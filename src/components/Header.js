@@ -61,7 +61,7 @@ function Nav(props) {
   return (
     <nav id="main-nav">
       <ul>
-        <li><Link to="/mercury" className="link-page" onClick={closeMenu}>Mercury</Link></li>
+        <li><Link to="/mercury" className="link-page" id="border-0" onClick={closeMenu}>Mercury</Link></li>
         <li><Link to="/venus" className="link-page" onClick={closeMenu}>Venus</Link></li>
         <li><Link to="/earth" className="link-page" onClick={closeMenu}>Earth</Link></li>
         <li><Link to="/mars" className="link-page" onClick={closeMenu}>Mars</Link></li>

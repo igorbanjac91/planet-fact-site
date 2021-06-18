@@ -32,14 +32,14 @@ function Planet() {
 
   const [planet, setPlanet] = useState(null)
 
-  useEffect(async () => {
+  useEffect(() => {
 
-    // window.addEventListener("onlaad", () => {
-    //   setPlanet()
-    // })
+    async function fethcData() {
+      let respone = await getData(planetName)
+      setPlanet(respone)
+    }
 
-    let planetObj = await getData(planetName)
-    setPlanet(planetObj)
+    fethcData(planetName);
   }, [planetName]) 
   
   const getData = async (name = "Mercury") => {
