@@ -33,12 +33,7 @@ function CardMain(props) {
   const [toggleStructure, setToggleStructure] = useState(false)
   const [toggleSurface, setToggleSurface] = useState(false)
   const [navItemStyle, setNavItemStyle] = useState( { borderBottom: `3px solid ${color}`, color: "#fff" })
-  const [windowSize, setWindowSize] = useState(window.innerWidth)
-
-  // let navItemStyle = {
-  //   borderBottom: `3px solid ${color}`,
-  //   color: "#fff"
-  // }
+  const [windowSize, setWindowSize] = useState(window.innerWidth) 
 
   useEffect(() => {
     showOverview();

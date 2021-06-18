@@ -110,7 +110,12 @@
         padding-bottom: 16px;
         text-align: left;
         color: #fff;
-        border: 1px solid $trasparent-white-20 
+        border: 1px solid $trasparent-white-20;
+        cursor: pointer; 
+      }
+
+      a:hover {
+        background-color: $hover-gray;
       }
 
       span {

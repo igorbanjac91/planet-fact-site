@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
+
+
+  useEffect(() => {
+    
+    
+  })
 
   const [isActive, setIsActive] = useState(false)
   
@@ -22,7 +28,7 @@ function Header() {
     setIsActive(false);
   }
 
-  return (
+  return ( 
     <header className="main-header">
       <div className="main-header__header">
         <h1>THE PLANETS</h1>
@@ -36,21 +42,33 @@ function Header() {
 
 function Nav(props) {
 
-  function closeMenu() {
+  function closeMenu(e) {
+    setBorderColor(e)
     props.closeMenu();
+  }
+
+  function setBorderColor(event) {
+    let links = document.querySelectorAll(".link-page")
+    Array.from(links).forEach((elm, index) => {
+      if ( elm === event.target) {
+        elm.setAttribute("id",`border-${index}`)
+      } else {
+        elm.removeAttribute("id", `border-${index}`)
+      }
+    } ) 
   }
 
   return (
     <nav id="main-nav">
       <ul>
-        <li><Link to="/mercury" onClick={closeMenu}>Mercury</Link></li>
-        <li><Link to="/venus" onClick={closeMenu}>Venus</Link></li>
-        <li><Link to="/earth" onClick={closeMenu}>Earth</Link></li>
-        <li><Link to="/mars" onClick={closeMenu}>Mars</Link></li>
-        <li><Link to="/jupiter" onClick={closeMenu}>Jupiter</Link></li>
-        <li><Link to="/saturn" onClick={closeMenu}>Saturn</Link></li>
-        <li><Link to="/uranus" onClick={closeMenu}>Uranus</Link></li>
-        <li><Link to="/neptune" onClick={closeMenu}>Neptune</Link></li>
+        <li><Link to="/mercury" className="link-page" onClick={closeMenu}>Mercury</Link></li>
+        <li><Link to="/venus" className="link-page" onClick={closeMenu}>Venus</Link></li>
+        <li><Link to="/earth" className="link-page" onClick={closeMenu}>Earth</Link></li>
+        <li><Link to="/mars" className="link-page" onClick={closeMenu}>Mars</Link></li>
+        <li><Link to="/jupiter" className="link-page" onClick={closeMenu}>Jupiter</Link></li>
+        <li><Link to="/saturn" className="link-page" onClick={closeMenu}>Saturn</Link></li>
+        <li><Link to="/uranus" className="link-page" onClick={closeMenu}>Uranus</Link></li>
+        <li><Link to="/neptune" className="link-page" onClick={closeMenu}>Neptune</Link></li>
       </ul>
     </nav>
   )
