@@ -49,6 +49,7 @@ function CardMain(props) {
 
     if (windowSize < 600) {
       setBorderColor(color)
+      resetNavValues()
     } else {
       setBackgroundColor(color)
       changeNavValues()
@@ -120,6 +121,13 @@ function CardMain(props) {
     surface.childNodes[1].nodeValue = "surface geology";
   }
 
+  function resetNavValues() {
+    let overview = document.querySelector("#overviewItem");
+    let structure = document.querySelector("#structureItem");    
+    let surface = document.querySelector("#surfaceItem");
+    structure.childNodes[1].nodeValue = "structure";
+    surface.childNodes[1].nodeValue = "geology";
+  }
 
   return (
     <div className="planet-card__container">
