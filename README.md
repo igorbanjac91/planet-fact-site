@@ -26,9 +26,10 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile view](./screenshot.jpg)
-![Tablet view](./screenshot.jpg)
-![Desktop view](./screenshot.jpg)
+
+![Tablet view](./screenshots/planets-mobile.png)
+![Desktop view](./screenshots/planets-tablet.png)
+![Mobile view](./screenshots/planets-desktop.png)
 
 ### Links
 
