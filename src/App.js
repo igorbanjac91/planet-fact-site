@@ -18,7 +18,7 @@ function App() {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/planet-fact-site" >
+          <Route exact path="/planet-fact-app.herokuapp.com" >
             <Redirect to="/mercury" />
           </Route>
           <Route path="/:planetName" children={<Planet />} />

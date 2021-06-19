@@ -18,14 +18,13 @@ This is a solution to the [Planets fact site challenge on Frontend Mentor](https
 
 ### The challenge
 
-Users is able to:
+Users are able to:
 
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - View each planet page and toggle between "Overview", "Internal Structure", and "Surface Geology"
 
 ### Screenshots
-
 
 ![Tablet view](./screenshots/planets-mobile.png)
 ![Desktop view](./screenshots/planets-tablet.png)
