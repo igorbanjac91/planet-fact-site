@@ -8,6 +8,7 @@ import {
 } from "react-router-dom"
 import Header from "./components/Header";
 import PlanetCard from './components/Card';
+import data from "./data.json";
 
 
 function App() {
@@ -34,27 +35,9 @@ function Planet() {
   const [planet, setPlanet] = useState(null)
 
   useEffect(() => {
-
-    async function fethcData(name = "Mercury") {
-      try {
-        let response = await fetch('/data.json', {
-          headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-           }
-        })    
-        let data =  await response.json()
-        data.find( (planetObj) => {
-          if (planetObj.name === capitalize(name) ) {
-             setPlanet(planetObj)
-          }
-        })
-      } catch(err) {
-        console.log(err)
-      }
-    }
-    fethcData(planetName);
-  }, [planet]) 
+    let planet = data.find( (planetObj) => planetObj.name === capitalize(planetName))
+    setPlanet(planet);
+  }, [planetName]) 
   
 
   function capitalize(word) {
