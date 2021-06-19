@@ -33,7 +33,7 @@ Users is able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://planet-fact-app.herokuapp.com/](https://planet-fact-app.herokuapp.com/)
 
 ## My process
 
@@ -46,6 +46,8 @@ Users is able to:
 How to organize to solve the problems in a more productive way
 
 ### Continued development
+
+- Add a home page that shows the solar system in motion with clickable planets.
 
 ## Author
 
