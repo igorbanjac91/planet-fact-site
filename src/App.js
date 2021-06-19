@@ -17,7 +17,7 @@ function App() {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" >
+          <Route exact path="/planet-fact-site" >
             <Redirect to="/mercury" />
           </Route>
           <Route path="/:planetName" children={<Planet />} />
@@ -36,21 +36,25 @@ function Planet() {
   useEffect(() => {
 
     async function fethcData(name = "Mercury") {
-      let response = await fetch('/data.json', {
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-         }
-      })    
-      let data =  await response.json()
-      data.find( (planetObj) => {
-        if (planetObj.name === capitalize(name) ) {
-           setPlanet(planetObj)
-        }
-      })
+      try {
+        let response = await fetch('/data.json', {
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        })    
+        let data =  await response.json()
+        data.find( (planetObj) => {
+          if (planetObj.name === capitalize(name) ) {
+             setPlanet(planetObj)
+          }
+        })
+      } catch(err) {
+        console.log(err)
+      }
     }
     fethcData(planetName);
-  }, [planetName]) 
+  }, [planet]) 
   
 
   function capitalize(word) {

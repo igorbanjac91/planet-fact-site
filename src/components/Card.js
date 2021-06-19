@@ -122,7 +122,6 @@ function CardMain(props) {
     surface.childNodes[1].nodeValue = "geology";
   }
 
-  console.log(imageUrl)
   return (
     <div className="planet-card__container">
       <nav className="planet-card__nav">
