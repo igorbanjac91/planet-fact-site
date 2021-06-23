@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/planet-fact-site/static/css/main.124410f1.chunk.css",
-    "main.js": "/planet-fact-site/static/js/main.8b04ef1f.chunk.js",
-    "main.js.map": "/planet-fact-site/static/js/main.8b04ef1f.chunk.js.map",
+    "main.js": "/planet-fact-site/static/js/main.4d7cbfce.chunk.js",
+    "main.js.map": "/planet-fact-site/static/js/main.4d7cbfce.chunk.js.map",
     "runtime-main.js": "/planet-fact-site/static/js/runtime-main.806bd79a.js",
     "runtime-main.js.map": "/planet-fact-site/static/js/runtime-main.806bd79a.js.map",
     "static/js/2.ae82aaca.chunk.js": "/planet-fact-site/static/js/2.ae82aaca.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.806bd79a.js",
     "static/js/2.ae82aaca.chunk.js",
     "static/css/main.124410f1.chunk.css",
-    "static/js/main.8b04ef1f.chunk.js"
+    "static/js/main.4d7cbfce.chunk.js"
   ]
 }
