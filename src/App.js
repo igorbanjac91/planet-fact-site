@@ -18,7 +18,7 @@ function App() {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/" >
+          <Route exact path="/planet-fact-site" >
             <Redirect to="/mercury" />
           </Route>
           <Route path="/:planetName" children={<Planet />} />
